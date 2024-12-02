@@ -1,0 +1,242 @@
+/* Global Reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background-color: #1a202c;
+  color: #fff;
+}
+.dashboard .sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #1f2937;
+  height: 100vh;
+}
+.dashboard .sidebar .dashboard-title {
+  margin-bottom: 100px;
+  font-size: 24px;
+}
+.dashboard .sidebar .sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  margin-bottom: 280px;
+  /* Adds space between menu and admin-info section */
+}
+.dashboard .sidebar .sidebar-menu .menu-button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.dashboard .sidebar .sidebar-menu .menu-button:hover {
+  background-color: #444;
+}
+.dashboard .sidebar .admin-info {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dashboard .sidebar .admin-info .admin-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #666;
+  border-radius: 50%;
+}
+.dashboard .sidebar .admin-info .logout {
+  color: #f00;
+  text-decoration: none;
+}
+.dashboard .sidebar .admin-info .logout:hover {
+  text-decoration: underline;
+}
+.dashboard .content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #232c3c;
+}
+.dashboard .content .hidden {
+  display: none;
+}
+.dashboard .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dashboard .content .header .add-button {
+  background-color: #718096;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dashboard .content .header .add-button:hover {
+  background-color: #0062cc;
+}
+.dashboard .content .card {
+  background-color: #2d3748;
+  padding: 20px;
+  border-radius: 10px;
+}
+.dashboard .content .card .search-sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+  /* Space between search and sort-pagination */
+}
+.dashboard .content .card .search-field {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #404a59;
+  background-color: #374151;
+  color: #fff;
+}
+.dashboard .content .card .search-field:focus {
+  outline: none;
+  border-color: #556377;
+}
+.dashboard .content .card .sort-pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Space between dropdown and buttons */
+  margin-top: 10px;
+}
+.dashboard .content .card .sort-pagination label {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  /* Optional: to match the style in the screenshot */
+  margin-right: 5px;
+  /* Spacing between label and dropdown */
+}
+.dashboard .content .card .sort-pagination select {
+  padding: 6px 12px;
+  /* Adjust padding for dropdown */
+  background-color: #374151;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dashboard .content .card .sort-pagination select:hover {
+  background-color: #4c596f;
+}
+.dashboard .content .card .sort-pagination label {
+  margin-right: 5px;
+  /* Adjust spacing between 'Page:' label and buttons */
+  color: #fff;
+  font-size: 14px;
+}
+.dashboard .content .card .sort-pagination .page-button {
+  padding: 6px 12px;
+  /* Adjust padding for buttons */
+  background-color: #374151;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dashboard .content .card .sort-pagination .page-button:hover {
+  background-color: #4c596f;
+}
+.dashboard .content .card .village-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dashboard .content .card .village-list .village-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #414d60;
+  border-radius: 5px;
+}
+.dashboard .content .card .village-list .village-card .actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #718096;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dashboard .content .card .village-list .village-card .actions button:hover {
+  background-color: #5a677a;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    /* Shrink sidebar */
+  }
+  .content {
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .dashboard {
+    flex-direction: column;
+    /* Stack sidebar and content */
+  }
+  .sidebar {
+    width: 100%;
+    /* Full width sidebar */
+    padding: 10px;
+  }
+  .content {
+    padding: 10px;
+  }
+  .sort-pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .village-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .search-field {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    /* Shrink sidebar */
+  }
+  .dashboard-title {
+    margin-bottom: 30px;
+    /* Adjusted gap for smaller screens */
+  }
+}
+/* Media Query for even smaller screens */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    /* Full-width sidebar */
+    padding: 10px;
+  }
+  .dashboard-title {
+    margin-bottom: 20px;
+    /* Further reduced gap on mobile */
+  }
+}

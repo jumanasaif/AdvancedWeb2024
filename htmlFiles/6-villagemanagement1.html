@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village Management Dashboard</title>
+    <link rel="stylesheet" href="../styles/6-villagemanagement1.css">
+  </head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 class="dashboard-title">Dashboard</h2>
+      <div class="sidebar-menu">
+        <button id="overview-btn" class="menu-button">Overview</button>
+        <button id="village-management-btn" class="menu-button">Village Management</button>
+        <button id="chat-btn" class="menu-button">Chat</button>
+        <button id="gallery-btn" class="menu-button">Gallery</button>
+      </div>
+      <div class="admin-info">
+        <div class="admin-avatar"></div>
+        <a href="#" class="logout">Logout</a>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Overview Section -->
+      <div id="overview-section" class="hidden">
+        <h2>Overview</h2>
+        <p>Content for the overview section.</p>
+      </div>
+  
+      <!-- Village Management Section -->
+      <div id="village-management-section" class="hidden">
+        <div class="header">
+          <button class="add-button">Add New Village</button>
+        </div>
+        <div class="card">
+          <h3>View Village List</h3>
+          <div class="search-sort">
+            <input type="text" placeholder="Search villages..." class="search-field" /> </div>
+            
+            <div class="sort-pagination">
+              <label for="sort-select">Sort by:</label>
+              <select>
+                <option value="default"> Default</option>
+              </select>
+              <label>Page:</label>
+              <button class="page-button">Prev</button>
+              <button class="page-button">Next</button>
+            </div>
+         
+          <div class="village-list">
+            <div class="village-card">
+              <span>Jabalia - Gaza Strip</span>
+              <div class="actions">
+                <button>View</button>
+                <button>Update Village</button>
+                <button>Delete Village</button>
+                <button>Update Demographic Data</button>
+              </div>
+            </div>
+
+            <div class="village-card">
+              <span>Beit Lahia - Gaza Strip</span>
+              <div class="actions">
+                  <button>View</button>
+                  <button>Update Village</button>
+                  <button>Delete Village</button>
+                  <button>Update Demographic Data</button>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Chat Section -->
+      <div id="chat-section" class="hidden">
+        <h2>Chat</h2>
+        <p>Content for the chat section.</p>
+      </div>
+  
+      <!-- Gallery Section -->
+      <div id="gallery-section" class="hidden">
+        <h2>Gallery</h2>
+        <p>Content for the gallery section.</p>
+      </div>
+    </div>
+  </div>
+  
+    <script src="../javascript/6-villagemanagement1.js"></script>
+  </body>
+</html>
