@@ -1,0 +1,156 @@
+@background-color: #1A202C;
+@container-bg: #1F2937;
+@header-bg: #444;
+@button-bg: #3C82F6;
+@button-hover-bg: #003891;
+@text-color: #fff;
+@user-color: #4caf50;
+@admin-color: #f44336;
+@input-bg: #ffff;
+@names-color:#5D6673;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  }
+
+.chat-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: @background-color;
+  color: @text-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ 
+
+  h2 {
+    color: @text-color;
+  }
+
+  #search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: @text-color;
+  }
+}
+
+.admin-list {
+  h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .admin-list-items {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+
+    .admin-item {
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: @input-bg; 
+        display: block;
+      }
+
+      span {
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: @names-color;
+      }
+    }
+  }
+}
+
+.chat-box {
+  margin-top: 20px;
+  border-top: 1px solid @header-bg;
+  padding-top: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  .messages {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid @header-bg;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: @container-bg;
+    flex-grow: 1;
+
+
+    .message {
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+
+      &.user {
+        background-color: @user-color;
+        color: @text-color;
+        text-align: right;
+      }
+
+      &.admin {
+        background-color: @admin-color;
+        color: @text-color;
+        text-align: left;
+      }
+    }
+  }
+
+  .message-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+   
+   #admin-message {
+     width: 100%; 
+     padding: 10px; 
+     font-size: 16px; 
+     border: 1px solid #ccc; 
+     border-radius: 4px; 
+     resize: none; 
+   }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: @input-bg;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: @button-bg;
+      color: @text-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: auto; 
+      font-size: 16px;
+      align-self: flex-start; 
+
+      &:hover {
+        background-color: @button-hover-bg;
+      }
+    }
+  }
+}
