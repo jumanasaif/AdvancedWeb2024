@@ -13,7 +13,6 @@
   const villageList = JSON.parse(localStorage.getItem("villageList")) || [];
   const totalVillagesElement = document.getElementById("total-villages");
   totalVillagesElement.textContent = villageList.length;
-  
 
 
   // Age Distribution Chart
