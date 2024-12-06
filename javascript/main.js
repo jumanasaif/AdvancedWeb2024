@@ -14,18 +14,7 @@
   const totalVillagesElement = document.getElementById("total-villages");
   totalVillagesElement.textContent = villageList.length;
   
-    // Count villages with the "Urban" category
-    const urbanVillages = villageList.filter((village) =>
-      village.categories.includes("urban")
-    );
-    const urbanVillageCount = urbanVillages.length;
-  
-    // Display count on the main page
-    const urbanVillageCountElement = document.getElementById("urban-village-count");
-    if (urbanVillageCountElement) {
-      urbanVillageCountElement.textContent = urbanVillageCount;
-    }
-  
+
 
   // Age Distribution Chart
  

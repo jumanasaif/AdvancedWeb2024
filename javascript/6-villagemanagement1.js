@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const avatar = document.getElementById("admin-avatar");
     const nameElement = document.getElementById("admin-name");
 
-    avatar.src = `/images/${adminInfo.image}`;
+    avatar.src = '/images/${adminInfo.image}';
     nameElement.textContent = adminInfo.fullName;
   } else {
     console.warn("No valid admin info found. Redirecting to login...");
@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   villageManagementBtn.addEventListener("click", () =>
     showSection(villageManagementSection)
   );
-  overviewBtn.addEventListener("click", () => {
-    window.location.href = "/htmlFiles/Main.html";
-  });
+  overviewBtn.addEventListener("click", () => showSection(overviewSection));
   chatBtn.addEventListener("click", () => showSection(chatSection));
   galleryBtn.addEventListener("click", () => showSection(gallerySection));
 
@@ -241,18 +239,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const landArea = document.getElementById("land-area").value.trim();
     const latitude = document.getElementById("latitude").value.trim();
     const longitude = document.getElementById("longitude").value.trim();
-    const categoriesInput = document.getElementById("categories").value;
+    const categories = document.getElementById("categories").value
+      .split(",")
+      .map((tag) => tag.trim());
+    const imageUpload = document.getElementById("image-upload").files[0];
   
-    if (!villageName || !regionDistrict || !landArea || !latitude || !longitude || !categoriesInput) {
+    if (!villageName || !regionDistrict || !landArea || !latitude || !longitude || !imageUpload) {
       alert("Please fill in all required fields!");
       return;
     }
   
-    // Split categories correctly
-    const categories = categoriesInput.split(",").map((tag) => tag.trim());
-  
-    const imageUpload = document.getElementById("image-upload").files[0];
-    const imageUrl = imageUpload ? URL.createObjectURL(imageUpload) : "";
+    const imageUrl = URL.createObjectURL(imageUpload);
   
     const newVillage = {
       name: villageName,
@@ -261,14 +258,14 @@ document.addEventListener("DOMContentLoaded", () => {
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude),
       image: imageUrl,
-      categories, // Ensure categories are added
+      categories,
     };
   
+    // Update localStorage and re-render the list
     const updatedVillages = [...savedVillages, newVillage];
     localStorage.setItem("villageList", JSON.stringify(updatedVillages));
     renderVillages(updatedVillages);
   
-    // Reset form fields and close the modal
     modalOverlay.style.display = "none";
     document.getElementById("village-name").value = "";
     document.getElementById("region-district").value = "";
@@ -278,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("categories").value = "";
     document.getElementById("image-upload").value = "";
   });
-  
   
   
   

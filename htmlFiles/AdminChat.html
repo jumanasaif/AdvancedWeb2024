@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with Users</title>
+  <link rel="stylesheet" href="/styles/chat.css">
+</head>
+<body>
+  <div class="chat-container">
+    <h2>Chat with Users</h2>
+    <input type="text" id="search-bar" placeholder="Search for a user...">
+    
+    <div class="admin-list" id="admin-list">
+      <h3>Available Users</h3>
+      <ul id="admin-list-items" class="admin-list-items"></ul> <!-- Users will be dynamically added here -->
+    </div>
+  
+    <div class="chat-box" style="display: none;">
+      <h3 id="chat-header">Chat with:</h3>
+      <div class="messages" id="chat-window"></div>
+      <div class="message-input">
+         <textarea id="admin-message" placeholder="Type your message..." rows="3"></textarea>
+         <button id="send-message">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascript/AdminChat.js"></script>
+</body>
+</html>
