@@ -1,0 +1,624 @@
+// Variables for consistent styling
+@primary-color: #007bff;
+@secondary-color: #1f2937;
+@background-color: #1a202c;
+@card-color:#2d3748;
+@light-gray: #444;
+@white: #fff;
+@danger-color: #f00;
+@sort-prev-color:#374151;
+@city-button : #718096;
+@border-color:#404a59;
+@hovers:#2d3748;
+@text-color:#afb9c6;
+@add-text-color:#cbd5e0;
+@add-label-color:#bdc1c8;
+@close-color:#606877;
+@add-border-color:#3e4857;
+@add-background-color:#374151;
+@add-village-button:#fdfdfd;
+@add-village-button-back:#4a5568;
+@view-header: #cad4df;
+
+
+
+
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+
+// Dashboard Layout
+.dashboard {
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping for smaller screens
+  height: auto;
+  height: 100vh;
+  background-color: @background-color;
+  color: @white;
+
+  // Sidebar Styles
+  .sidebar {
+    
+    width: 15%;
+    padding: 20px;
+    background-color: @secondary-color;
+    height: 100vh;
+
+    .dashboard-title {
+      margin-bottom: 100px;
+      font-size: 1.5rem;
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+      margin-bottom: 280px; /* Adds space between menu and admin-info section */
+     
+
+      .menu-button {
+        display: block;
+        width:100%;
+        background: none;
+        border: none;
+        color: @text-color;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 0.9rem;
+
+        &:hover {
+         background-color: @hovers;
+        }
+      }
+    }
+
+    .admin-info {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .admin-avatar {
+        width: 40px;
+        height: 40px;
+        background-color: #666;
+        border-radius: 50%;
+      }
+
+      .logout {
+        color: @danger-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Content Area Styles
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: lighten(@background-color, 5%);
+    
+
+    .hidden {
+      display: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .add-button {
+        background-color: @city-button ;
+        color: @white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background-color: lighten(@sort-prev-color, 10%);
+        }
+      }
+    }
+
+    .card {
+      background-color: @card-color;
+      color: @text-color;
+      padding: 20px;
+      border-radius: 10px;
+
+      .search-sort {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 15px; /* Space between search and sort-pagination */
+       
+      
+      }
+       .search-field {
+          padding: 10px;
+          width: 100%;
+          border-radius: 5px;
+          border: 2px solid @border-color;
+          background-color:@sort-prev-color;
+          color: @text-color; // Ensures text is readable if the background is dark
+
+          &:focus {
+            outline: none; // Removes the default browser outline
+            border-color: lighten(@border-color, 10%); // Lightens border on focus for better visibility
+          }
+
+          &::placeholder {
+            color: @text-color; // Adjust the placeholder color (lighter version of @text-color)
+            opacity: 1; // Ensure full visibility
+          }
+        
+        }
+
+        
+      
+      .sort-pagination {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Space between dropdown and buttons */
+        margin-top: 10px;
+
+
+        label {
+          color: @white;
+          font-size: 14px;
+          font-weight: bold; /* Optional: to match the style in the screenshot */
+          margin-right: 5px; /* Spacing between label and dropdown */
+        }
+      
+        select {
+          padding: 6px 20px; /* Adjust padding for dropdown */
+          background-color: @sort-prev-color;
+          color: @white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          text-align: left;
+      
+          &:hover {
+            background-color: lighten(@sort-prev-color, 10%);
+          }
+        }
+      
+        label {
+          margin-right: 5px; /* Adjust spacing between 'Page:' label and buttons */
+          color: @white;
+          font-size: 14px;
+        }
+
+        select:last-of-type {
+          margin-right:795px; // Adjust space after the select dropdown
+        }
+      
+        label + button.page-button {
+          margin-left: 15px; // Add space before page navigation buttons
+        }
+      
+        .page-button {
+          padding: 6px 12px; /* Adjust padding for buttons */
+          background-color: @sort-prev-color;
+          color: @white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      
+          &:hover {
+            background-color: lighten(@sort-prev-color, 10%);
+          }
+        }
+      }
+      
+      
+
+      .village-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+
+        .village-card {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          background-color: lighten(@sort-prev-color, 5%);
+          border-radius: 5px;
+
+          .actions {
+            button {
+              margin-left: 5px;
+              padding: 5px 10px;
+              background-color:@city-button;
+              color: @white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: darken(@city-button, 10%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Shrink sidebar */
+  }
+
+  .content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    flex-direction: column; /* Stack sidebar and content */
+  }
+
+  .sidebar {
+    width: 100%; /* Full width sidebar */
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .sort-pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .village-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .search-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Shrink sidebar */
+  }
+
+  .dashboard-title {
+    margin-bottom: 30px; /* Adjusted gap for smaller screens */
+  }
+}
+
+/* Media Query for even smaller screens */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%; /* Full-width sidebar */
+    padding: 10px;
+  }
+
+  .dashboard-title {
+    margin-bottom: 20px; /* Further reduced gap on mobile */
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  .sort-pagination {
+    select:last-of-type {
+      margin-right: 30px; // Reduce margin for medium screens
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sort-pagination {
+    flex-direction: column; // Stack elements vertically
+    align-items: flex-start;
+
+    select:last-of-type {
+      margin-right: 0; // No margin for smaller screens
+      margin-bottom: 10px; // Add vertical spacing instead
+    }
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .content {
+    padding: 30px;
+  }
+}
+
+// Tablets
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .search-field {
+    width: 80%;
+  }
+}
+
+// Mobile phones
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%; // Full width
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .search-field {
+    width: 100%; // Full width search bar
+  }
+}
+
+
+.modal-overlay {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); // Semi-transparent black background
+  z-index: 1000; // Make sure it's above everything else
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Modal Container
+.modal {
+  width: calc(50% - 50px);
+  width: 400px; // Adjusted width
+  background: @card-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  z-index: 1100; // Ensure it's above the overlay
+  animation: slideDown 0.3s ease-in-out;
+}
+
+// Modal Header
+.modal-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left;
+  color:@add-text-color;
+}
+
+
+
+.umodal-close {
+  position: absolute;
+  top: 9%;
+  left: 62%;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: @close-color;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+
+
+.dmodal-close{
+  position: absolute;
+  top: 22%;
+  left: 62%;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: @close-color;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dmodal-close:hover {
+  color: @danger-color; // Red color on hover
+}
+.umodal-close:hover {
+  color: @danger-color; // Red color on hover
+}
+
+// Close Button
+.modal-close {
+  position: absolute;
+  top: 4%;
+  left: 62%;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: @close-color;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: @danger-color; // Red color on hover
+}
+
+// Modal Body
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-body label {
+  display: inline-block;
+  font-size: 14px;
+  color: @add-label-color;
+}
+
+
+.modal-body input,
+.modal-body select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid @add-border-color;
+  border-radius: 5px;
+  background: @add-background-color;
+  color: #fff;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.modal-body input:focus {
+  border-color: #7289da;
+}
+
+.modal-body button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: @add-village-button-back;
+  color: @add-village-button;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-body button:hover {
+  background: #5b6eae;
+}
+
+// Animations
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@media (max-width: 500px) {
+  .modal {
+    width: 90%;
+  }
+}
+
+
+
+.view-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  .view-modal {
+    background: @add-background-color;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    .view-modal-header {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color:   @view-header;
+    }
+
+    .view-modal-body {
+      p {
+        margin: 10px 0;
+        color: @text-color;
+        font-size: 1rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+      
+    }
+
+
+    .modal-body p strong {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+
+    .view-modal-close {
+      position: absolute;
+      top: 32%;
+      left: 65%;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color:  @close-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .view-modal {
+    width: 95%;
+  }
+}

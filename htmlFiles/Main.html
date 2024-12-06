@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
+   
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>Dashboard</h1>
+        <ul class="menu">
+          <li><a href="Main.html">Overview</a></li>
+          <li><a href="6-villagemanagement1.html">Village Management</a></li>
+          <li><a href="chat.html">Chat</a></li>
+          <li><a href="#">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="admin-info">
+        <img id="admin-avatar" src="" alt="Admin Avatar" class="admin-avatar">
+        <span id="admin-name"></span>
+        <a href="#" id="logout-button" class="logout">Logout</a>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="header">
+        <h2>Overview</h2>
+      </div>
+
+      <!-- Map -->
+      <div id="map" class="map" style="height: 300px;"></div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <h3>Total Number of Villages</h3>
+          <p id="total-villages">Loading...</p>
+        </div>
+        <div class="stat">
+          <h3>Total Number of Urban Areas</h3>
+          <p id="urban-village-count">Loading...</p>
+        </div>
+        <div class="stat">
+          <h3>Total Population Size</h3>
+          <p>660000</p>
+        </div>
+        <div class="stat">
+          <h3>Average Land Area</h3>
+          <p>11.88 sq km</p>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="chart">
+          <canvas id="ageChart"></canvas>
+        </div>
+        <div class="chart">
+          <canvas id="genderChart"></canvas>
+        </div>
+      </div>
+      <div class="chart">
+        <canvas id="populationChart"></canvas>
+       </div> 
+    </div>
+  </div>
+  <script src="/javascript/main.js"></script>
+  <script src="/javascript/6-villagemanagement1.js"></script>
+</body>
+</html>

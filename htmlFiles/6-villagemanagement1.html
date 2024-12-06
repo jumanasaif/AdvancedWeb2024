@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village Management Dashboard</title>
+    <link rel="stylesheet" href="/styles/6-villagemanagement1.css">
+  </head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 class="dashboard-title">Dashboard</h2>
+      <div class="sidebar-menu">
+        <button id="overview-btn" class="menu-button">Overview</button>
+        <button id="village-management-btn" class="menu-button">Village Management</button>
+        <button id="chat-btn" class="menu-button">Chat</button>
+        <button id="gallery-btn" class="menu-button">Gallery</button>
+      </div>
+      <div class="admin-info">
+        <img id="admin-avatar" src="" alt="Admin Avatar" class="admin-avatar">
+        <span id="admin-name"></span>
+        <a href="#" id="logout-button" class="logout">Logout</a>
+      </div>
+      
+    </div>
+  
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Overview Section -->
+      <div id="overview-section" class="hidden">
+        <h2>Overview</h2>
+        <p>Content for the overview section.</p>
+      </div>
+  
+      <!-- Village Management Section -->
+      <div id="village-management-section" class="hidden">
+        <div class="header">
+          <button class="add-button" id="add-new-village-btn">Add New Village</button>
+        </div>
+        <div class="modal-overlay" id="add-new-village-modal" style="display: none;">
+          <div class="modal">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-header">Add New Village</div>
+            <div class="modal-body">
+              <label for="village-name">Village Name:</label>
+              <input type="text" id="village-name" required placeholder="Enter village name">
+        
+              <label for="region-district">Region/District:</label>
+              <input type="text" id="region-district" required placeholder="Enter region/district">
+        
+              <label for="land-area">Land Area (sq km):</label>
+              <input type="number" id="land-area" required placeholder="Enter land area">
+        
+              <label for="latitude">Latitude:</label>
+              <input type="text" id="latitude" required placeholder="Enter latitude">
+        
+              <label for="longitude">Longitude:</label>
+              <input type="text" id="longitude" required placeholder="Enter longitude">
+        
+              <label for="image-upload">Upload Image:</label>
+              <input type="file" id="image-upload" required>
+        
+              <label for="categories">Categories/Tags:</label>
+              <input type="text" id="categories" placeholder="e.g., rural, urban">
+        
+              <button id="submit-village">Add Village</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="modal-overlay" id="update-village-modal" style="display: none;">
+          <div class="modal">
+            <button class="umodal-close" id="update-close-modal">&times;</button>
+            <div class="modal-header">Update Village</div>
+            <div class="modal-body">
+              <label for="update-village-name">Village Name:</label>
+              <input type="text" id="update-village-name" required placeholder="Enter village name">
+              
+              <label for="update-region-district">Region/District:</label>
+              <input type="text" id="update-region-district" required placeholder="Enter region/district">
+        
+              <label for="update-land-area">Land Area (sq km):</label>
+              <input type="number" id="update-land-area" required placeholder="Enter land area">
+        
+              <label for="update-latitude">Latitude:</label>
+              <input type="text" id="update-latitude" required placeholder="Enter latitude">
+        
+              <label for="update-longitude">Longitude:</label>
+              <input type="text" id="update-longitude" required placeholder="Enter longitude">
+        
+              <label for="update-image-upload">Upload New Image:</label>
+              <input type="file" id="update-image-upload">
+        
+              <button id="update-village">Update Village</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-overlay" id="update-demographic-modal" style="display: none;">
+          <div class="modal">
+            <button class="dmodal-close" id="close-demographic-modal">&times;</button>
+            <div class="modal-header">Update Demographic Data</div>
+            <div class="modal-body">
+              
+        
+              <label for="population-size">Population Size:</label>
+              <input type="number" id="population-size" placeholder="Enter population size" required />
+        
+              <label for="age-distribution">Age Distribution:</label>
+              <input type="text" id="age-distribution" placeholder="Enter age distribution (e.g., 0-18: 25%, 18-60: 50%, 60+: 25%)"></input>
+        
+              <label for="gender-ratio">Gender Ratio (M:F):</label>
+              <input type="text" id="gender-ratio" placeholder="Enter gender ratio (e.g., 1:1)" required />
+        
+              <label for="population-growth-rate">Population Growth Rate (%):</label>
+              <input type="text" id="population-growth-rate" placeholder="Enter growth rate (e.g., 2.5)" required />
+        
+              <button id="save-demographic-data">Save Demographic Data</button>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="view-modal-overlay" id="view-village-modal-overlay" style="display: none;">
+          <div class="view-modal">
+            <button class="view-modal-close" id="view-close-modal-btn">&times;</button>
+            <div class="view-modal-header">Village Details</div>
+            <div class="view-modal-body">
+              <p><strong>Village Name:</strong> <span id="view-village-name-detail"></span></p>
+              <p><strong>Region/District:</strong> <span id="view-village-region-detail"></span></p>
+              <p><strong>Land Area (sq km):</strong> <span id="view-village-area-detail"></span></p>
+              <p><strong>Latitude:</strong> <span id="view-village-latitude-detail"></span></p>
+              <p><strong>Longitude:</strong> <span id="view-village-longitude-detail"></span></p>
+              <p><strong>Tags:</strong> <span id="view-village-tags-detail"></span></p>
+              <div>
+                
+                <img id="view-village-image-detail" src="" alt="Village Image" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="card">
+          <h3>View Village List</h3>
+          <div class="search-sort">
+            <input type="text" placeholder="Search villages..." class="search-field" /> </div>
+            
+            <div class="sort-pagination">
+              <label for="sort-select">Sort by:</label>
+              <select >
+                <option value="default"> Default</option>
+                <option value="alphapatical">Alphapatical</option>
+              </select>
+              <label>Page:</label>
+              <button class="page-button">Prev</button>
+              <button class="page-button">Next</button>
+            </div>
+         
+          <div class="village-list">
+          
+          </div>
+        </div>
+      </div>
+  
+      <!-- Chat Section -->
+      <div id="chat-section" class="hidden">
+        <h2>Chat</h2>
+        <p>Content for the chat section.</p>
+      </div>
+  
+      <!-- Gallery Section -->
+      <div id="gallery-section" class="hidden">
+        <h2>Gallery</h2>
+        <p>Content for the gallery section.</p>
+      </div>
+    </div>
+  </div>
+    <script src="/javascript/Signup-in.js"></script>
+    <script src="/javascript/6-villagemanagement1.js"></script>
+  </body>
+</html>

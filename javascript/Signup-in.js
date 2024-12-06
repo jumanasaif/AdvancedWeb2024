@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem("role", "admin");
         localStorage.setItem("username", username);
         alert(`Welcome Admin: ${admin.fullName}`);
-        window.location.href = "/htmlFiles/AdminChat.html"; // Redirect to chat interface
+        localStorage.setItem('loggedInAdmin', JSON.stringify(admin));
+        window.location.href = "/htmlFiles/6-villagemanagement1.html";
         return;
       }
 
