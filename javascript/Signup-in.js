@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
           // Successful admin login
           alert(`Welcome Admin: ${admin.fullName}`);
           console.log(`Admin ${admin.fullName} logged in successfully.`);
-          window.location.href = "/htmlFiles/admin-dashboard.html"; // Example redirection
+          localStorage.setItem('loggedInAdmin', JSON.stringify(admin));
+          window.location.href = "/htmlFiles/6-villagemanagement1.html"; // Example redirection
+
         } else {
           // Check if the user is a regular user (from localStorage)
           const storedUsers = JSON.parse(localStorage.getItem('userList')) || [];
